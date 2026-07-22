@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: oklch(0.975 0.006 80);
+}
+
+a {
+  color: oklch(0.5 0.1 75);
+  text-decoration: none;
+}
+
+a:hover {
+  color: oklch(0.4 0.1 75);
+}
+
+::selection {
+  background: oklch(0.6 0.11 75 / 0.25);
+}
