@@ -52,6 +52,7 @@ const slides: Slide[] = [
       "https://images.pexels.com/photos/6827338/pexels-photo-6827338.jpeg?auto=compress&cs=tinysrgb&w=1600",
     imageAlt: "Antiques dealer",
     imageFirst: false,
+    caseStudyHref: "/work/antiques-dealer",
   },
   {
     href: "https://99frames-quote-form.vercel.app/",
@@ -68,6 +69,7 @@ const slides: Slide[] = [
       "https://images.pexels.com/photos/5905067/pexels-photo-5905067.jpeg?auto=compress&cs=tinysrgb&w=1600",
     imageAlt: "Custom framing studio",
     imageFirst: true,
+    caseStudyHref: "/work/framing-studio",
   },
   {
     href: "https://web-seven-gold-32.vercel.app/",
@@ -84,6 +86,7 @@ const slides: Slide[] = [
       "https://images.pexels.com/photos/18361685/pexels-photo-18361685.jpeg?auto=compress&cs=tinysrgb&w=1600",
     imageAlt: "Rare book and fine art dealer",
     imageFirst: false,
+    caseStudyHref: "/work/rare-books",
   },
 ];
 
