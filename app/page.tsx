@@ -346,7 +346,7 @@ export default function Home() {
               margin: 0,
             }}
           >
-            Have a problem like these?
+            Have problems like these?
           </h2>
           <p style={{ fontSize: 18, color: "oklch(0.75 0.005 80)", margin: 0 }}>
             If your business has a process held together by paper and phone
