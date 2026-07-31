@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import type { CSSProperties } from "react";
 import { useRef, useState } from "react";
 
 type Slide = {
@@ -13,6 +15,8 @@ type Slide = {
   image: string;
   imageAlt: string;
   imageFirst: boolean;
+  beforeHref?: string;
+  caseStudyHref?: string;
 };
 
 const slides: Slide[] = [
@@ -64,6 +68,23 @@ const slides: Slide[] = [
     imageAlt: "Rare book and fine art dealer",
     imageFirst: false,
   },
+  {
+    href: "https://muunstone.vercel.app/",
+    eyebrow: "Boutique Strategy Consulting Firm",
+    title: "Full landing page redesign",
+    problem:
+      "The original landing page used generic corporate-consulting visual language — a repeated logo watermark stamped across every hero photo, a flat SaaS-blue palette, three templated service blocks with near-identical structure, and an inconsistent client-logo grid — none of which reflected the firm's actual boutique, high-touch positioning.",
+    built:
+      "A full landing page redesign — reworked photography tied to the firm's own identity (mineral/copper imagery echoing the name itself) instead of generic stock, tightened editorial copy, two clearly differentiated service offerings instead of repeated blocks, and removal of the watermark.",
+    why: 'Thought about the redesign from what "boutique" actually signals visually — restraint and thematic specificity — rather than layering on more generic corporate polish.',
+    changed:
+      "The site now reads as a distinct, considered brand instead of a templated consulting site, matching the firm's premium positioning.",
+    image: "https://muunstone.vercel.app/images/hero.webp",
+    imageAlt: "Macro detail of moonstone with copper veining",
+    imageFirst: true,
+    beforeHref: "https://www.muunstone.com/",
+    caseStudyHref: "/work/muunstone",
+  },
 ];
 
 export default function Carousel() {
@@ -111,121 +132,136 @@ export default function Carousel() {
           border: "1px solid oklch(0.89 0.006 80)",
         }}
       >
-        {slides.map((slide, i) => (
-          <div
-            key={slide.href}
-            style={{
-              width: "100%",
-              flexShrink: 0,
-              scrollSnapAlign: "start",
-              background: "oklch(1 0 0)",
-            }}
-          >
-            <a
-              href={slide.href}
-              target="_blank"
-              rel="noopener"
+        {slides.map((slide, i) => {
+          const textPanel = (
+            <div
               style={{
-                display: "grid",
-                gridTemplateColumns: slide.imageFirst ? "1fr 1.1fr" : "1.1fr 1fr",
-                gap: 0,
-                color: "inherit",
+                padding: "clamp(28px,4vw,56px)",
+                display: "flex",
+                flexDirection: "column",
+                gap: 16,
               }}
             >
-              {slide.imageFirst && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={slide.image}
-                  alt={slide.imageAlt}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    minHeight: 280,
-                    objectFit: "cover",
-                  }}
-                />
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  color: "oklch(0.5 0.1 75)",
+                }}
+              >
+                {slide.eyebrow}
+              </span>
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "clamp(22px,2.5vw,28px)",
+                  fontWeight: 800,
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {slide.title}
+              </h3>
+              <p style={{ margin: 0, fontSize: 16, color: "oklch(0.4 0.01 75)" }}>
+                <strong>Problem:</strong> {slide.problem}
+              </p>
+              <p style={{ margin: 0, fontSize: 16, color: "oklch(0.4 0.01 75)" }}>
+                <strong>What I built:</strong> {slide.built}
+              </p>
+              {expanded[i] && (
+                <>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 16,
+                      color: "oklch(0.4 0.01 75)",
+                    }}
+                  >
+                    <strong>Why this approach:</strong> {slide.why}
+                  </p>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 16,
+                      color: "oklch(0.4 0.01 75)",
+                    }}
+                  >
+                    <strong>What changed:</strong> {slide.changed}
+                  </p>
+                </>
               )}
               <div
                 style={{
-                  padding: "clamp(28px,4vw,56px)",
                   display: "flex",
-                  flexDirection: "column",
-                  gap: 16,
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: 20,
+                  marginTop: 8,
                 }}
               >
-                <span
+                <button
+                  onClick={(e) => toggleExpand(i, e)}
                   style={{
-                    fontSize: 12,
+                    background: "none",
+                    border: "none",
+                    padding: 0,
                     fontWeight: 700,
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    color: "oklch(0.5 0.1 75)",
+                    fontSize: 15,
+                    color: "oklch(0.15 0.008 75)",
+                    cursor: "pointer",
+                    textDecoration: "underline",
                   }}
                 >
-                  {slide.eyebrow}
-                </span>
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "clamp(22px,2.5vw,28px)",
-                    fontWeight: 800,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {slide.title}
-                </h3>
-                <p style={{ margin: 0, fontSize: 16, color: "oklch(0.4 0.01 75)" }}>
-                  <strong>Problem:</strong> {slide.problem}
-                </p>
-                <p style={{ margin: 0, fontSize: 16, color: "oklch(0.4 0.01 75)" }}>
-                  <strong>What I built:</strong> {slide.built}
-                </p>
-                {expanded[i] && (
-                  <>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontSize: 16,
-                        color: "oklch(0.4 0.01 75)",
-                      }}
-                    >
-                      <strong>Why this approach:</strong> {slide.why}
-                    </p>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontSize: 16,
-                        color: "oklch(0.4 0.01 75)",
-                      }}
-                    >
-                      <strong>What changed:</strong> {slide.changed}
-                    </p>
-                  </>
-                )}
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    alignItems: "center",
-                    gap: 20,
-                    marginTop: 8,
-                  }}
-                >
-                  <button
-                    onClick={(e) => toggleExpand(i, e)}
+                  {expanded[i] ? "Show less" : "Read more"}
+                </button>
+                {slide.caseStudyHref && (
+                  <Link
+                    href={slide.caseStudyHref}
                     style={{
-                      background: "none",
-                      border: "none",
-                      padding: 0,
                       fontWeight: 700,
                       fontSize: 15,
                       color: "oklch(0.15 0.008 75)",
-                      cursor: "pointer",
                       textDecoration: "underline",
                     }}
                   >
-                    {expanded[i] ? "Show less" : "Read more"}
-                  </button>
+                    Full case study →
+                  </Link>
+                )}
+                {slide.beforeHref && (
+                  <a
+                    href={slide.beforeHref}
+                    target="_blank"
+                    rel="noopener"
+                    style={{
+                      border: "1px solid oklch(0.89 0.006 80)",
+                      color: "oklch(0.15 0.008 75)",
+                      padding: "12px 24px",
+                      borderRadius: 8,
+                      fontWeight: 700,
+                      fontSize: 15,
+                    }}
+                  >
+                    Before ↗
+                  </a>
+                )}
+                {slide.caseStudyHref ? (
+                  <a
+                    href={slide.href}
+                    target="_blank"
+                    rel="noopener"
+                    style={{
+                      background: "oklch(0.15 0.008 75)",
+                      color: "oklch(0.98 0.005 80)",
+                      padding: "12px 24px",
+                      borderRadius: 8,
+                      fontWeight: 700,
+                      fontSize: 15,
+                    }}
+                  >
+                    View live demo ↗
+                  </a>
+                ) : (
                   <span
                     style={{
                       background: "oklch(0.15 0.008 75)",
@@ -238,24 +274,76 @@ export default function Carousel() {
                   >
                     View live demo ↗
                   </span>
-                </div>
+                )}
               </div>
-              {!slide.imageFirst && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={slide.image}
-                  alt={slide.imageAlt}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    minHeight: 280,
-                    objectFit: "cover",
-                  }}
-                />
+            </div>
+          );
+
+          const image = (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={slide.image}
+              alt={slide.imageAlt}
+              style={{
+                width: "100%",
+                height: "100%",
+                minHeight: 280,
+                objectFit: "cover",
+              }}
+            />
+          );
+
+          const gridStyle: CSSProperties = {
+            display: "grid",
+            gridTemplateColumns: slide.imageFirst ? "1fr 1.1fr" : "1.1fr 1fr",
+            gap: 0,
+            color: "inherit",
+          };
+
+          return (
+            <div
+              key={slide.href}
+              style={{
+                width: "100%",
+                flexShrink: 0,
+                scrollSnapAlign: "start",
+                background: "oklch(1 0 0)",
+              }}
+            >
+              {slide.caseStudyHref ? (
+                <div style={gridStyle}>
+                  {slide.imageFirst && (
+                    <a
+                      href={slide.href}
+                      target="_blank"
+                      rel="noopener"
+                      style={{ display: "block" }}
+                    >
+                      {image}
+                    </a>
+                  )}
+                  {textPanel}
+                  {!slide.imageFirst && (
+                    <a
+                      href={slide.href}
+                      target="_blank"
+                      rel="noopener"
+                      style={{ display: "block" }}
+                    >
+                      {image}
+                    </a>
+                  )}
+                </div>
+              ) : (
+                <a href={slide.href} target="_blank" rel="noopener" style={gridStyle}>
+                  {slide.imageFirst && image}
+                  {textPanel}
+                  {!slide.imageFirst && image}
+                </a>
               )}
-            </a>
-          </div>
-        ))}
+            </div>
+          );
+        })}
       </div>
 
       <button
