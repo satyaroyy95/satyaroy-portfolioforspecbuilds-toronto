@@ -112,9 +112,8 @@ export default function Home() {
             margin: 0,
           }}
         >
-          I build the tool before I ask for the meeting. Three small
-          businesses, three real operational problems, three working demos —
-          no pitch deck required.
+          I build the tool before I ask for the meeting. Real businesses,
+          real problems, working demos — no pitch deck required.
         </p>
         <div
           style={{

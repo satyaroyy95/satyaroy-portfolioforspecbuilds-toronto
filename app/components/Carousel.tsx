@@ -21,6 +21,23 @@ type Slide = {
 
 const slides: Slide[] = [
   {
+    href: "https://muunstone.vercel.app/",
+    eyebrow: "Boutique Strategy Consulting Firm",
+    title: "Full landing page redesign",
+    problem:
+      "The original landing page used generic corporate-consulting visual language — a repeated logo watermark stamped across every hero photo, a flat SaaS-blue palette, three templated service blocks with near-identical structure, and an inconsistent client-logo grid — none of which reflected the firm's actual boutique, high-touch positioning.",
+    built:
+      "A full landing page redesign — reworked photography tied to the firm's own identity (mineral/copper imagery echoing the name itself) instead of generic stock, tightened editorial copy, two clearly differentiated service offerings instead of repeated blocks, and removal of the watermark.",
+    why: 'Thought about the redesign from what "boutique" actually signals visually — restraint and thematic specificity — rather than layering on more generic corporate polish.',
+    changed:
+      "The site now reads as a distinct, considered brand instead of a templated consulting site, matching the firm's premium positioning.",
+    image: "https://muunstone.vercel.app/images/hero.webp",
+    imageAlt: "Macro detail of moonstone with copper veining",
+    imageFirst: true,
+    beforeHref: "https://www.muunstone.com/",
+    caseStudyHref: "/work/muunstone",
+  },
+  {
     href: "https://greens-antiques-catalog.vercel.app/",
     eyebrow: "Antiques Dealer, Toronto",
     title: "Public catalogue + private upload tool",
@@ -67,23 +84,6 @@ const slides: Slide[] = [
       "https://images.pexels.com/photos/18361685/pexels-photo-18361685.jpeg?auto=compress&cs=tinysrgb&w=1600",
     imageAlt: "Rare book and fine art dealer",
     imageFirst: false,
-  },
-  {
-    href: "https://muunstone.vercel.app/",
-    eyebrow: "Boutique Strategy Consulting Firm",
-    title: "Full landing page redesign",
-    problem:
-      "The original landing page used generic corporate-consulting visual language — a repeated logo watermark stamped across every hero photo, a flat SaaS-blue palette, three templated service blocks with near-identical structure, and an inconsistent client-logo grid — none of which reflected the firm's actual boutique, high-touch positioning.",
-    built:
-      "A full landing page redesign — reworked photography tied to the firm's own identity (mineral/copper imagery echoing the name itself) instead of generic stock, tightened editorial copy, two clearly differentiated service offerings instead of repeated blocks, and removal of the watermark.",
-    why: 'Thought about the redesign from what "boutique" actually signals visually — restraint and thematic specificity — rather than layering on more generic corporate polish.',
-    changed:
-      "The site now reads as a distinct, considered brand instead of a templated consulting site, matching the firm's premium positioning.",
-    image: "https://muunstone.vercel.app/images/hero.webp",
-    imageAlt: "Macro detail of moonstone with copper veining",
-    imageFirst: true,
-    beforeHref: "https://www.muunstone.com/",
-    caseStudyHref: "/work/muunstone",
   },
 ];
 
