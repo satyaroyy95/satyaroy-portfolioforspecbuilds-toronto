@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Muunstone Group — Full landing page redesign | Satya Roy",
+  title: "Boutique Strategy Consulting Firm — Full landing page redesign | Satya Roy",
   description:
     "Case study: a full landing page redesign for a boutique strategy consulting firm — reworked photography, tightened copy, and two clearly differentiated service offerings.",
 };
 
-export default function MuunstonePage() {
+export default function ConsultingRedesignPage() {
   return (
     <div
       style={{
@@ -114,8 +114,8 @@ export default function MuunstonePage() {
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://muunstone.vercel.app/images/hero.webp"
-          alt="Macro detail of moonstone with copper veining"
+          src="https://consulting-mock-satya-roy.vercel.app/images/accordion-approach.webp"
+          alt="Two colleagues in conversation at a table"
           style={{
             width: "100%",
             maxHeight: 420,
@@ -132,7 +132,7 @@ export default function MuunstonePage() {
           }}
         >
           <a
-            href="https://muunstone.vercel.app/"
+            href="https://consulting-mock-satya-roy.vercel.app/"
             target="_blank"
             rel="noopener"
             style={{
@@ -145,21 +145,6 @@ export default function MuunstonePage() {
             }}
           >
             View live demo ↗
-          </a>
-          <a
-            href="https://www.muunstone.com/"
-            target="_blank"
-            rel="noopener"
-            style={{
-              border: "1.5px solid oklch(0.78 0.008 75)",
-              color: "oklch(0.15 0.008 75)",
-              padding: "14px 28px",
-              borderRadius: 8,
-              fontWeight: 700,
-              fontSize: 16,
-            }}
-          >
-            View before ↗
           </a>
         </div>
 
@@ -212,10 +197,10 @@ export default function MuunstonePage() {
             </h2>
             <p style={{ margin: 0 }}>
               A full landing page redesign — reworked photography tied to
-              the firm&apos;s own identity (mineral/copper imagery echoing
-              the name itself) instead of generic stock, tightened editorial
-              copy, two clearly differentiated service offerings instead of
-              repeated blocks, and removal of the watermark.
+              the firm&apos;s own identity instead of generic stock,
+              tightened editorial copy, two clearly differentiated service
+              offerings instead of repeated blocks, and removal of the
+              watermark.
             </p>
           </div>
           <div>
